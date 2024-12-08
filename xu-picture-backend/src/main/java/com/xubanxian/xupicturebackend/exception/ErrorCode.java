@@ -39,4 +39,18 @@ public enum ErrorCode {
         this.code = code;
         this.message = message;
     }
+
+    /**
+     * 根据错误码获取错误信息
+     * @param code 目标错误码
+     * @return 若不为空则结果为code错误码对应的ErrorCode的message
+     */
+    public static String getMessageByCode(int code) {
+        for (ErrorCode errorCode : ErrorCode.values()) {
+            if (errorCode.getCode() == code) {
+                return errorCode.getMessage();
+            }
+        }
+        return null;
+    }
 }
